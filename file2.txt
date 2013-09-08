@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Diagnostics;
+
+namespace WindowsFormsApplication1
+{
+    public class MainCls
+    {
+        public string[,] nums = new string[,]
+        {
+            {"a","b","c"},
+            {"d","d","f"},
+            {"g","h","i"},
+            {"j","k","l"},
+            {"m","n","o"},
+            {"p","q","r"},
+            {"t","u","v"},
+            {"w","x","y"}
+    };
+
+        public void PrintStuff(string number)
+        {
+            if (number.Length <= 0)
+                return;
+
+            int numberToNumber = 0;
+            try
+            {
+                 numberToNumber = int.Parse(number);
+            }
+            catch
+            {
+                Debug.WriteLine("alpha not allowed");
+                return;
+            }
+
+            PrintStuff2(number);
+        }
+
+        public void PrintStuff2(string number)
+        {
+            Debug.WriteLine("********************");
+            string number2 = number.Substring(0, number.Length - 1);
+            char temp1 = number[number.Length - 1];
+            int temp1Index = int.Parse(temp1.ToString());
+
+            for (int y = 0; y < 3; y++)
+            {
+                Debug.Write(number2);
+                Debug.WriteLine(nums[temp1Index, y]);
+            }
+            Debug.WriteLine("********************");
+        }
+    }
+}
